@@ -1,0 +1,58 @@
+@font-face {
+  font-family: Graphik;
+  font-weight: 400;
+  src: url(../../fonts/Graphik-Regular.otf);
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight: 600;
+  src: url(../../fonts/Graphik-Semibold.otf);
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight: 500;
+  src: url(../../fonts/Graphik-Medium.otf);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: 0;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+%body-text {
+  font-family: Graphik, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0;
+  color: $gray06-color;
+}
+
+%body-medium {
+  font-weight: 500;
+}
+
+%footnote-medium {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+}

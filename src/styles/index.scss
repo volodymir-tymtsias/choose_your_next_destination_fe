@@ -1,0 +1,26 @@
+@import "../styles/normalize.css";
+
+@import "../styles/utils/variables";
+@import "../styles/utils/typography";
+@import "../styles/utils/mixins";
+
+@import "../styles/blocks/App.scss";
+@import "../styles/pages/HomePage.scss";
+@import "../styles/pages/NotFoundPage.scss";
+@import "../styles/blocks/Header.scss";
+@import "../styles/blocks/Footer.scss";
+@import "../styles/blocks/Logo.scss";
+@import "../styles/blocks/Message.scss";
+@import "../styles/blocks/PriceRange.scss";
+@import "../styles/blocks/Navbar.scss";
+@import "../styles/blocks/Selector.scss";
+@import "../styles/blocks/icon.scss";
+@import "../styles/blocks/button.scss";
+
+body {
+  @extend %body-text;
+}
+
+iframe {
+  display: none;
+}

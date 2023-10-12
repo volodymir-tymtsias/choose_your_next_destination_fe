@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  &__image {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__text {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0;
+    color: $gray06-color;
+  }
+}

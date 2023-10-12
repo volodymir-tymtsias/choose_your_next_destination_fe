@@ -1,0 +1,21 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $secondary-light-blue-color;
+
+  &__main-container {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  &__main {
+    flex-grow: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: $primary-color;
+    border-radius: 104px;
+  }
+}

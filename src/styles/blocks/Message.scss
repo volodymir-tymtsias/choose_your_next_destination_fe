@@ -1,0 +1,14 @@
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background-color: $gray04-color;
+  border: 1px solid $gray02-color;
+  border-radius: 10px;
+
+  &--error {
+    color: $error-color;
+  }
+}
