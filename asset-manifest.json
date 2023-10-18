@@ -1,24 +1,33 @@
 {
   "files": {
-    "main.css": "./static/css/main.6249326e.css",
-    "main.js": "./static/js/main.20ab9b9e.js",
+    "main.css": "./static/css/main.7794aa04.css",
+    "main.js": "./static/js/main.6ace073a.js",
     "static/js/787.a213109c.chunk.js": "./static/js/787.a213109c.chunk.js",
     "static/media/Graphik-Semibold.otf": "./static/media/Graphik-Semibold.6b4438951b43b1f2b4d3.otf",
     "static/media/Graphik-Medium.otf": "./static/media/Graphik-Medium.3eb2c26dc24c945401af.otf",
     "static/media/Graphik-Regular.otf": "./static/media/Graphik-Regular.e7f4046c1937c259c933.otf",
+    "static/media/Filters.svg": "./static/media/Filters.3257046316288df54a22.svg",
+    "static/media/Seaside.svg": "./static/media/Seaside.6a8324dc7e22c1774212.svg",
+    "static/media/Extreme.svg": "./static/media/Extreme.1f2bf0b14cf07e5037de.svg",
+    "static/media/Price.svg": "./static/media/Price.c32d2f4e7c65a7f37366.svg",
     "static/media/Heart.svg": "./static/media/Heart.9b286b5b73fb4b1f52c3.svg",
+    "static/media/Search.svg": "./static/media/Search.cf6785e371e084c43823.svg",
+    "static/media/Architecture.svg": "./static/media/Architecture.fd6bfb22f60f6f242bcb.svg",
+    "static/media/Cities.svg": "./static/media/Cities.291627bbab49be01a1f0.svg",
     "static/media/TripPlanner.svg": "./static/media/TripPlanner.b73b861a913833be7121.svg",
     "static/media/Home.svg": "./static/media/Home.27d7a83cbce6ee6a9ae5.svg",
     "static/media/Language.svg": "./static/media/Language.3de79858085e5ea893eb.svg",
+    "static/media/Mountains.svg": "./static/media/Mountains.e2ad404f306f605b9f2a.svg",
+    "static/media/Rating.svg": "./static/media/Rating.76a43dd8f60f297c1961.svg",
     "static/media/Star.svg": "./static/media/Star.b2a9459976682f0ff254.svg",
     "index.html": "./index.html",
     "static/media/Arrow.svg": "./static/media/Arrow.30d4a7e6a4ed89775ed5.svg",
-    "main.6249326e.css.map": "./static/css/main.6249326e.css.map",
-    "main.20ab9b9e.js.map": "./static/js/main.20ab9b9e.js.map",
+    "main.7794aa04.css.map": "./static/css/main.7794aa04.css.map",
+    "main.6ace073a.js.map": "./static/js/main.6ace073a.js.map",
     "787.a213109c.chunk.js.map": "./static/js/787.a213109c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6249326e.css",
-    "static/js/main.20ab9b9e.js"
+    "static/css/main.7794aa04.css",
+    "static/js/main.6ace073a.js"
   ]
 }
