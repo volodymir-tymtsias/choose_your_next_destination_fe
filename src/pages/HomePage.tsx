@@ -1,91 +1,190 @@
-import React, { useEffect, useState } from 'react';
-// import { Product } from '../types/Product';
-// import { getProducts } from '../api/products';
-// import { Loader } from '../components/Loader';
-// import { ProductsSlider } from '../components/ProductsSlider';
-// import { ShopByCategory } from '../components/ShopByCategory';
-// import { Banner } from '../components/Banner';
-// import { Message } from '../components/Message';
+import React from 'react';
+import { PlacesList } from '../components/PlacesList';
+import { Place } from '../types/Place';
+import { Search } from '../components/Search';
+import { Checkbox } from '../components/Checkbox';
+import { Tags } from '../types/Tags';
+import { Pagination } from '../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
-  // const [products, setProducts] = useState<Product[]>([]);
-  // const [isError, setIsError] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page') || '1';
 
-  // const getHotPriceProducts = () => {
-  //   return products
-  //     .filter(product => product.discount > 0)
-  //     .sort((productA, productB) => {
-  //       return productB.price * productB.discount
-  //         - productA.price * productA.discount;
-  //     });
-  // };
-
-  // const getBrandNewProduct = () => {
-  //   return products
-  //     .filter(product => !product.discount)
-  //     .sort((productA, productB) => productB.price - productA.price);
-  // };
-
-  // const hotPriceProducts = getHotPriceProducts();
-  // const newProducts = getBrandNewProduct();
-
-  // const getQuantity = (productType: string) => {
-  //   return products
-  //     .filter(currentProduct => currentProduct.type === productType)
-  //     .length;
-  // };
-
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   getProducts()
-  //     .then(loadedProducts => setProducts(loadedProducts))
-  //     .catch(() => {
-  //       setIsError(true);
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // }, []);
+  const places: Place[] = [
+    {
+      id: 1,
+      name: 'Louvre MuseumTest Test Test',
+      location: 'Paris, France Test Test Test',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 2,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 3,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 4,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 5,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 6,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 7,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 8,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 9,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 10,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 11,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 12,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 13,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 14,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 15,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 16,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 17,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 18,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 19,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+    {
+      id: 20,
+      name: 'Louvre Museum',
+      location: 'Paris, France',
+      raiting: 4.7,
+      price: 65,
+    },
+  ];
 
   return (
     <div className="home-page">
-      test
-      {/* <section className="home-page__top-slider">
-        <Banner />
+      <section className="home-page__filters">
+        <div className="home-page__search-container">
+          <Search />
+          <button
+            className="button button--yellow"
+            type="button"
+            onClick={() => {}}
+          >
+            Search
+          </button>
+        </div>
+        <div className="home-page__tags">
+          <Checkbox textLabel={Tags.All} typeBox='button'/>
+          <Checkbox textLabel={Tags.Cities} typeBox='button'/>
+          <Checkbox textLabel={Tags.Architecture} typeBox='button'/>
+          <Checkbox textLabel={Tags.Seaside} typeBox='button'/>
+          <Checkbox textLabel={Tags.Mountains} typeBox='button'/>
+          <Checkbox textLabel={Tags.Extreme} typeBox='button'/>
+        </div>
       </section>
-
-      <section className="home-page__hot-prices">
-        {!isError && !isLoading && (
-          <ProductsSlider products={hotPriceProducts} title="Hot prices" />
-        )}
-        {isError && (
-          <Message message="Failed to load products" isError />
-        )}
-        {isLoading && (
-          <Loader />
-        )}
+      <section className="home-page__cards">
+        <PlacesList places={places} />
       </section>
-
-      <section className="home-page__shop-by-category">
-        <ShopByCategory
-          phonesQuantity={getQuantity('phone')}
-          tabletsQuantity={getQuantity('tablet')}
-          accessoriesQuantity={getQuantity('accessorie')}
-        />
-      </section>
-
-      <section className="home-page__new-models">
-        {!isError && !isLoading && (
-          <ProductsSlider products={newProducts} title="Brand new models" />
-        )}
-        {isError && (
-          <Message message="Failed to load products" isError />
-        )}
-        {isLoading && (
-          <Loader />
-        )}
-      </section> */}
+      <Pagination 
+        quantity={150}
+        perPage={20}
+        quantityVisiblePages={3}
+        page={page}
+      />
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.input {
+  width: 656px;
+  height: 56px;
+  padding: 16px 16px 16px 64px;
+  @extend%body-text;
+  @extend %body-medium;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: left 26px center;
+  background-size: 24px;
+  caret-color: $secondary-light-blue-color;
+
+  &::placeholder {
+    color: $gray03-color;
+  }
+
+  &--search {
+    background-image: url(../../icons/Search.svg);
+  }
+}

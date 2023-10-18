@@ -15,7 +15,13 @@
 @import "../styles/blocks/Navbar.scss";
 @import "../styles/blocks/Selector.scss";
 @import "../styles/blocks/icon.scss";
+@import "../styles/blocks/input.scss";
 @import "../styles/blocks/button.scss";
+@import "../styles/blocks/Search.scss";
+@import "../styles/blocks/Checkbox.scss";
+@import "../styles/blocks/PlacesList.scss";
+@import "../styles/blocks/PlaceCard.scss";
+@import "../styles/blocks/Pagination.scss";
 
 body {
   @extend %body-text;

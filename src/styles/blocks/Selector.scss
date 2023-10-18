@@ -20,6 +20,13 @@
     }
   }
 
+  &__menu-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+  }
+
   &__link {
     padding: 12px 24px 12px 24px;
     text-decoration: none;

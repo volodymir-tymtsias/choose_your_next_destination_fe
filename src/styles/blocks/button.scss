@@ -4,6 +4,7 @@
   align-items: center;
   gap: 8px;
   position: relative;
+  min-width: 106px;
   height: 48px;
   padding: 12px 24px;
   border: none;
@@ -15,6 +16,39 @@
   @extend %body-medium;
   text-decoration: none;
   // transition: all 0.3s;
+
+  &--filters {
+    position: absolute;
+    right: 0;
+    height: 56px;
+    border-left: 2px solid $primary-color;
+    border-radius: 0 40px 40px 0;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $gray05-color;
+    }
+
+    &:active {
+      color: $gray06-color;
+      background-color: $gray02-color;
+    }
+  }
+
+  &--yellow {
+    min-width: 208px;
+    height: 56px;
+    background-color: $secondary-yellow-color;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $secondary-yellow-button-hover-color;
+    }
+
+    &:active {
+      background-color: $secondary-yellow-button-pressed-color;
+    }
+  }
 
   &--menu {
     &:hover {
@@ -56,5 +90,48 @@
       color: $gray06-color;
       background-color: $gray02-color;
     }
+  }
+
+  &--tags {
+    min-width: 208px;
+  }
+
+  &--tags-active {
+    border: 2px solid $secondary-light-blue-color;
+  }
+
+  &--footer {
+    height: 21px;
+    justify-content: flex-start;
+    padding: 0;
+    @extend %footnote-medium;
+    color: $gray05-color;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $gray03-color;
+    }
+  }
+
+  &--pagination {
+    min-width: 32px;
+    height: 35px;
+    padding: 0;
+    border-radius: 8px;
+    color: $gray01-color;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid $secondary-light-blue-color;
+    }
+  }
+
+  &--pagination-active {
+    background-color: $secondary-light-blue-color;
+    color: $gray06-color;
+  }
+
+  &--pagination-disabled {
+    display: none;
   }
 }

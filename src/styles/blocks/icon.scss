@@ -1,23 +1,28 @@
 .icon {
   position: relative;
-
   display: block;
   width: 24px;
   height: 24px;
 
   background-color: transparent;
 
-  // -webkit-mask-repeat: no-repeat;
-  // mask-repeat: no-repeat;
-  // -webkit-mask-position: center;
-  // mask-position: center;
-
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 
+  &--mask {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
   &--home {
     background-image: url(../../icons/Home.svg);
+  }
+
+  &--filters {
+    background-image: url(../../icons/Filters.svg);
   }
 
   &--favorites {
@@ -44,5 +49,54 @@
 
   &--language {
     background-image: url(../../icons/Language.svg);
+  }
+
+  &--search {
+    background-image: url(../../icons/Search.svg);
+  }
+
+  &--cities {
+    background-image: url(../../icons/Cities.svg);
+  }
+
+  &--architecture {
+    background-image: url(../../icons/Architecture.svg);
+  }
+
+  &--seaside {
+    background-image: url(../../icons/Seaside.svg);
+  }
+
+  &--mountains {
+    background-image: url(../../icons/Mountains.svg);
+  }
+
+  &--extreme {
+    background-image: url(../../icons/Extreme.svg);
+  }
+
+  &--rating {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../icons/Rating.svg);
+  }
+
+  &--price {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../icons/Price.svg);
+  }
+
+  &--left {
+    background-color: $gray01-color;
+    -webkit-mask-image: url(../../icons/Arrow.svg);
+    mask-image: url(../../icons/Arrow.svg);
+    transform: rotate(180deg);
+  }
+
+  &--right {
+    background-color: $gray01-color;
+    -webkit-mask-image: url(../../icons/Arrow.svg);
+    mask-image: url(../../icons/Arrow.svg);
   }
 }

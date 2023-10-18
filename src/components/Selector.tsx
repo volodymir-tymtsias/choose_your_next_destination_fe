@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { useAppDispatch, useAppSelector, useClickOutside } from '../app/hooks';
 import { Language } from '../types/Language';
 import * as selectedLanguageAction from '../features/language';
-
-// type DropdownItem = {
-//   text: string,
-//   value: string,
-// };
 
 type Props = {
   items: Language[],
@@ -24,26 +19,24 @@ export const Selector: React.FC<Props> = ({
 }) => {
   const [isDropdown, setIsDropdown] = useState(false);
   const lenguage = useAppSelector(state => state.lenguage.language);
+  const currentItems = items.filter(item => item !== lenguage);
   const dispatch = useAppDispatch();
   // const [searchParams] = useSearchParams();
   // const sortBy = searchParams.get(filterName) || defaultValue;
 
   const onClickHandler = () => setIsDropdown(!isDropdown);
+  const menuRef = useRef(null);
 
   const onSelectHandler = (item: Language) => () => {
     dispatch(selectedLanguageAction.setLanguage(item));
     setIsDropdown(!isDropdown);
   };
 
-  // const getSortByText = () => items.find(item => item.value === sortBy)?.text;
-
-  // const getParams = (value: string) => {
-  //   const addParam = { [filterName]: value };
-
-  //   addParam.page = '1';
-
-  //   return addParam;
-  // };
+  useClickOutside(menuRef, () => {
+    if (isDropdown) {
+      setIsDropdown(false);
+    }
+  });
 
   return (
     <div
@@ -51,6 +44,7 @@ export const Selector: React.FC<Props> = ({
         'selector',
         { 'selector--is-active': isDropdown },
       )}
+      ref={menuRef}
     >
       <button
         type="button"
@@ -65,34 +59,36 @@ export const Selector: React.FC<Props> = ({
         <span className={`icon ${isDropdown ? 'icon--down' : 'icon--up'}`} />
       </button>
 
-      <div
+      <nav
         className={classNames(
           'selector__menu',
           { 'selector__menu--is-active': isDropdown },
         )}
+        
       >
-        {items.map(item => (
-          <div 
-            className="selector__link"
-            onClick={onSelectHandler(item)}
-            key={item}
-          >
-
-            {item}
-          </div>
-          // <SearchLink
-          //   className={classNames(
-          //     'selector__link',
-          //     { 'selector__link--is-active': item.value === sortBy },
-          //   )}
-          //   key={item.value}
-          //   params={getParams(item.value)}
-          //   onClick={onClickHandler}
-          // >
-          //   {item.text}
-          // </SearchLink>
-        ))}
-      </div>
+        <ul className="selector__menu-list">
+          {currentItems.map(item => (
+            <li 
+              className="selector__link"
+              onClick={onSelectHandler(item)}
+              key={item}
+            >
+              {item}
+            </li>
+            // <SearchLink
+            //   className={classNames(
+            //     'selector__link',
+            //     { 'selector__link--is-active': item.value === sortBy },
+            //   )}
+            //   key={item.value}
+            //   params={getParams(item.value)}
+            //   onClick={onClickHandler}
+            // >
+            //   {item.text}
+            // </SearchLink>
+          ))}
+          </ul>
+      </nav>
     </div>
   );
 };

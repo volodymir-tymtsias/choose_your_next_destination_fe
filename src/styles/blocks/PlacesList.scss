@@ -1,0 +1,16 @@
+.places-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(208px, 1fr));
+  gap: 16px;
+  list-style: none;
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}

@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import lenguageReducer from '../features/language';
+import filtersIsOpenReducer from '../features/filtersOpen';
+import tagsReducer from '../features/tags';
 
 export const store = configureStore({
   reducer: {
     lenguage: lenguageReducer,
+    filtersIsOpen: filtersIsOpenReducer,
+    tags: tagsReducer,
   },
 });
 
