@@ -1,190 +1,135 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { PlacesList } from '../components/PlacesList';
 import { Place } from '../types/Place';
 import { Search } from '../components/Search';
-import { Checkbox } from '../components/Checkbox';
+import { Tag } from '../components/Tag';
 import { Tags } from '../types/Tags';
 import { Pagination } from '../components/Pagination';
 import { useSearchParams } from 'react-router-dom';
+import { Modal } from '../components/Modal';
+import { Filters } from '../components/Filters';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import * as placesAction from '../features/places';
+
+import { Message } from '../components/Message';
+import { Loader } from '../components/Loader';
 
 export const HomePage: React.FC = () => {
   const [searchParams] = useSearchParams();
+  const dispatch = useAppDispatch();
+  const activities = searchParams.getAll('activities');
+  const tags = searchParams.getAll('tags');
+  const location = searchParams.get('location');
+  const date = searchParams.get('date');
+  const priceMin = searchParams.get('priceMin');
+  const priceMax = searchParams.get('priceMax');
+  const query = searchParams.get('query');
   const page = searchParams.get('page') || '1';
 
-  const places: Place[] = [
-    {
-      id: 1,
-      name: 'Louvre MuseumTest Test Test',
-      location: 'Paris, France Test Test Test',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 2,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 3,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 4,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 5,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 6,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 7,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 8,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 9,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 10,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 11,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 12,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 13,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 14,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 15,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 16,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 17,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 18,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 19,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-    {
-      id: 20,
-      name: 'Louvre Museum',
-      location: 'Paris, France',
-      raiting: 4.7,
-      price: 65,
-    },
-  ];
+  const filtersIsOpen = useAppSelector(state => state.filtersIsOpen.filtersIsOpen);
+  const { places, loading, hasError } = useAppSelector(state => state.places);
+  
+  const visiblePlaces = useMemo(() => {
+    let currentPlaces = places;
 
+    if (location) {
+      currentPlaces = currentPlaces
+        .filter(place => place.location.toLowerCase().includes(location.toLowerCase()));
+    };
+  
+    // if (date) {
+    //   currentPlaces = currentPlaces
+    //     .filter(place => );
+    // }
+  
+    if (priceMin) {
+      currentPlaces = currentPlaces
+        .filter(place => place.price >= +priceMin);
+    };
+  
+    if (priceMax) {
+      currentPlaces = currentPlaces
+        .filter(place => place.price <= +priceMax);
+    };
+  
+    if (activities.length) {
+      currentPlaces = currentPlaces
+        .filter(place => place.activities.some(item => activities.includes(item)));
+    };
+  
+    if (tags.length && tags[0] !== Tags.All) {
+      currentPlaces = currentPlaces
+        .filter(place => place.tags.some(item => tags.includes(item)));
+    };
+  
+    if (query) {
+      currentPlaces = currentPlaces
+        .filter(place => place.name.toLowerCase().includes(query.toLowerCase()));
+    };
+
+    return currentPlaces;
+  }, [places, location, priceMin, priceMax, activities, tags, query]);
+  
+  
+  
+  const startIndex = page === '1' ? 0 : (+page - 1) * 20;
+  const visiblePlacesOnPage = visiblePlaces.slice(startIndex, startIndex + 20);
+
+  // useEffect(() => {
+  //   dispatch(placesAction.initPlaces());
+  // }, [dispatch]);
+  
   return (
     <div className="home-page">
       <section className="home-page__filters">
         <div className="home-page__search-container">
           <Search />
-          <button
-            className="button button--yellow"
-            type="button"
-            onClick={() => {}}
-          >
-            Search
-          </button>
+          
         </div>
+        {filtersIsOpen && (
+          <Modal>
+            <Filters />
+          </Modal>
+        )}
         <div className="home-page__tags">
-          <Checkbox textLabel={Tags.All} typeBox='button'/>
-          <Checkbox textLabel={Tags.Cities} typeBox='button'/>
-          <Checkbox textLabel={Tags.Architecture} typeBox='button'/>
-          <Checkbox textLabel={Tags.Seaside} typeBox='button'/>
-          <Checkbox textLabel={Tags.Mountains} typeBox='button'/>
-          <Checkbox textLabel={Tags.Extreme} typeBox='button'/>
+          <Tag textLabel={Tags.All} />
+          <Tag textLabel={Tags.Cities} />
+          <Tag textLabel={Tags.Architecture} />
+          <Tag textLabel={Tags.Seaside} />
+          <Tag textLabel={Tags.Mountains} />
+          <Tag textLabel={Tags.Extreme} />
         </div>
       </section>
-      <section className="home-page__cards">
-        <PlacesList places={places} />
+      <section>
+        {!loading && !!places.length && !hasError && (
+          <>
+            <div className="home-page__cards">
+              <PlacesList places={visiblePlacesOnPage} />
+            </div>
+
+            {visiblePlaces.length > 20 && (
+              <Pagination 
+                quantity={150}
+                perPage={20}
+                quantityVisiblePages={3}
+                page={page}
+              />
+            )}
+          </>
+        )}
+
+        {!loading && !visiblePlaces.length && !hasError && (
+          <Message message="No matching places found, please change your filter settings" isError />
+        )}
+
+        {!loading && hasError && (
+          <Message message="Failed to load places" isError />
+        )}
+
+        {loading && !hasError && (
+          <Loader />
+        )}
       </section>
-      <Pagination 
-        quantity={150}
-        perPage={20}
-        quantityVisiblePages={3}
-        page={page}
-      />
     </div>
   );
 };

@@ -18,12 +18,14 @@
   // transition: all 0.3s;
 
   &--filters {
-    position: absolute;
-    right: 0;
+    // position: absolute;
+    // right: 0;
+    min-width: 133px;
     height: 56px;
     border-left: 2px solid $primary-color;
     border-radius: 0 40px 40px 0;
     transition: all 0.3s;
+    background-color: $gray01-color;
 
     &:hover {
       color: $gray05-color;
@@ -47,6 +49,22 @@
 
     &:active {
       background-color: $secondary-yellow-button-pressed-color;
+    }
+  }
+
+  &--yellow-border {
+    min-width: 208px;
+    height: 56px;
+    border: 2px solid $secondary-yellow-color;
+    color: $gray01-color;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: $secondary-yellow-button-hover-color;
+    }
+
+    &:active {
+      border-color: $secondary-yellow-button-pressed-color;
     }
   }
 
@@ -133,5 +151,11 @@
 
   &--pagination-disabled {
     display: none;
+  }
+
+  &--close {
+    padding: 0;
+    min-width: min-content;
+    height: 32px;
   }
 }

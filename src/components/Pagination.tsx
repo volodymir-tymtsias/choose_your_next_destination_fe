@@ -19,13 +19,19 @@ export const Pagination: React.FC<Props> = ({
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const endPage = Math.ceil(quantity / perPage);
-  const pages = getNumbers(1, endPage);
+  // const pages = getNumbers(1, endPage);
   const [firstVisiblePage, setFirstVisiblePage] = useState(1);
   const lastVisiblePage = firstVisiblePage + quantityVisiblePages - 1;
   const visiblePages = getNumbers(firstVisiblePage, lastVisiblePage);
 
   useEffect(() => {
-    if (+page === 1) {
+    if (+page > quantityVisiblePages) {
+      setFirstVisiblePage(+page - quantityVisiblePages + 1);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (page === '1') {
       setFirstVisiblePage(1);
     }
   }, [page]);

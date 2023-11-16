@@ -1,10 +1,9 @@
 import React from 'react';
 import { Logo } from './Logo';
-import { Link, useNavigate } from 'react-router-dom';
-import * as tagsAction from '../features/tags';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tags } from '../types/Tags';
-import { useAppDispatch } from '../app/hooks';
+import { getSearchWith } from '../helpers/searchHelper';
 
 export const Footer: React.FC = () => {
   const getMenuItems = (item: string) => {
@@ -36,13 +35,18 @@ export const Footer: React.FC = () => {
   }
 
   const topCategories = [Tags.Cities, Tags.Architecture, Tags.Seaside];
-  const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
+  const tags = searchParams.getAll('tags');
+  // const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const onTopCategories = (tag: Tags) => () => {
-    dispatch(tagsAction.addTags(Tags.All));
-    dispatch(tagsAction.addTags(tag));
-    navigate('/');
+    // setSearchParams(
+    //   getSearchWith(searchParams, { tags: [tag], page: '1' }),
+    // );
+    // dispatch(filtersAction.addTag(Tags.All));
+    // dispatch(filtersAction.addTag(tag));
+    navigate(`/?${getSearchWith(searchParams, { tags: [tag], page: '1' })}`);
     window.scrollTo({
       top: 0,
       left: 0,

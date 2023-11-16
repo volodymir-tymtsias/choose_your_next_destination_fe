@@ -1,38 +1,45 @@
 import React, { useState } from 'react';
 import '../styles/utils/_variables.scss';
+import { TextInput } from './TextInput';
 
 type Props = {
-  maxValue: number,
-  minValue: number,
+  maxValue: number;
+  minValue: number;
+  currentMin: number;
+  currentMax: number;
+  setCurrentPriceMin: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentPriceMax: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const PriceRange: React.FC<Props> = ({
   maxValue,
   minValue,
+  currentMin,
+  currentMax,
+  setCurrentPriceMin,
+  setCurrentPriceMax,
 }) => {
-  const [rangeValue1, setRangeValue1] = useState(minValue);
-  const defaultValue2 = Math.round(maxValue / 100 * 70);
-  const [rangeValue2, setRangeValue2] = useState(defaultValue2);
-  let minGap = Math.round(maxValue / 100 * 5);
-  let sliderTrack = document.querySelector(".slider-track");
-  const percent1 = ((rangeValue1 - minValue) / (maxValue - minValue)) * 100;
-  const percent2 = ((rangeValue2 - minValue) / (maxValue - minValue)) * 100;
+
+  //The minimum gap between the sliders in percent, if necessary, can be 0
+  let minGap = Math.round(maxValue / 100 * 2);
+  const percent1 = ((currentMin - minValue) / (maxValue - minValue)) * 100;
+  const percent2 = ((currentMax - minValue) / (maxValue - minValue)) * 100;
   const bgTrack = `linear-gradient(to right, #ff6961 ${percent1}% ,` 
     + ` #87bfff ${percent1}% ,#87bfff ${percent2}%, #30db5b ${percent2}%)`;
 
   function slideOne(e: React.ChangeEvent<HTMLInputElement>){
-    if(rangeValue2 - +e.target.value <= minGap){
-      setRangeValue1(rangeValue2 - minGap);
+    if(currentMax - +e.target.value <= minGap){
+      setCurrentPriceMin(currentMax - minGap);
     } else {
-      setRangeValue1(+e.target.value);
+      setCurrentPriceMin(+e.target.value);
     }
   }
 
   function slideTwo(e: React.ChangeEvent<HTMLInputElement>){
-    if(+e.target.value - rangeValue1 <= minGap){
-      setRangeValue2(rangeValue1 + minGap);
+    if(+e.target.value - currentMin <= minGap){
+      setCurrentPriceMax(currentMin + minGap);
     } else {
-      setRangeValue2(+e.target.value);
+      setCurrentPriceMax(+e.target.value);
     }
   }
 
@@ -41,17 +48,7 @@ export const PriceRange: React.FC<Props> = ({
       <div className="price-range__title">
         Price range
       </div>
-      <div className="price-input">
-        <div className="field">
-          <span>Min</span>
-          <input type="number" value="300" className="min-input" />
-        </div>
-        <div className="seperator">-</div>
-        <div className="field">
-          <span>Max</span>
-          <input type="number" value="3500" className="max-input" />
-        </div>
-      </div>
+      
       <div className="price-range__container">
             <div 
               className="price-range__track"
@@ -63,7 +60,7 @@ export const PriceRange: React.FC<Props> = ({
               min={minValue} 
               max={maxValue} 
               step={1}
-              value={rangeValue1}
+              value={currentMin}
               onChange={slideOne}
             />
             <input 
@@ -72,9 +69,31 @@ export const PriceRange: React.FC<Props> = ({
               min={minValue} 
               max={maxValue} 
               step={1}
-              value={rangeValue2} 
+              value={currentMax} 
               onChange={slideTwo}
             />
+      </div>
+
+      <div className="price-range__inputs">
+        <TextInput
+          name='priceMin'
+          type='number'
+          label='Minimum'
+          value={currentMin.toString()}
+          min={minValue} 
+          max={maxValue}
+          setValue={slideOne}
+        />
+
+        <TextInput
+          name='priceMax'
+          type='number'
+          label='Maximum'
+          value={currentMax.toString()}
+          min={minValue} 
+          max={maxValue}
+          setValue={slideTwo}
+        />
       </div>
     </div>
   );

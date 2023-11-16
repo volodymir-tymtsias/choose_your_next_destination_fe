@@ -56,7 +56,7 @@ export const PlaceCard: React.FC<Props> = ({ place }) => {
             {place.raiting}
           </div>
           <div className="place-card__bottom-item">
-            <span className="icon icon--price"></span>
+            <span className="icon icon--price-small"></span>
             {`$${place.price}`}
           </div>
         </div>

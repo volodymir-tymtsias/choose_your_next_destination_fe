@@ -1,5 +1,7 @@
 .checkbox {
   position: relative;
+  display: flex;
+  align-items: center;
   flex-grow: 1;
 
   &__invisible {
@@ -14,6 +16,14 @@
   }
 
   &__label {
+    display: flex;
     color: $secondary-light-blue-color;
+    cursor: pointer;
+
+    &--activities {
+      color: $gray01-color;
+    }
   }
+
+
 }

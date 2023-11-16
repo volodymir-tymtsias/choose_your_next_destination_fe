@@ -9,12 +9,17 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  transition: all 0.3s;
 
   &--mask {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
+  }
+
+  &--label {
+    margin-right: 8px;
   }
 
   &--home {
@@ -52,7 +57,9 @@
   }
 
   &--search {
-    background-image: url(../../icons/Search.svg);
+    background-color: $secondary-light-blue-color;
+    -webkit-mask-image: url(../../icons/Search.svg);
+    mask-image: url(../../icons/Search.svg);
   }
 
   &--cities {
@@ -81,7 +88,7 @@
     background-image: url(../../icons/Rating.svg);
   }
 
-  &--price {
+  &--price-small {
     width: 16px;
     height: 16px;
     background-image: url(../../icons/Price.svg);
@@ -98,5 +105,70 @@
     background-color: $gray01-color;
     -webkit-mask-image: url(../../icons/Arrow.svg);
     mask-image: url(../../icons/Arrow.svg);
+  }
+
+  &--close {
+    width: 32px;
+    height: 32px;
+    background-color: $gray06-color;
+    -webkit-mask-image: url(../../icons/Close.svg);
+    mask-image: url(../../icons/Close.svg);
+
+    &:hover {
+      background-color: $gray03-color;
+    }
+  }
+
+  &--location {
+    background-color: $secondary-light-blue-color;
+    -webkit-mask-image: url(../../icons/Location.svg);
+    mask-image: url(../../icons/Location.svg);
+  }
+
+  &--date {
+    background-color: $secondary-light-blue-color;
+    -webkit-mask-image: url(../../icons/Calendar.svg);
+    mask-image: url(../../icons/Calendar.svg);
+  }
+
+  &--price {
+    background-color: $secondary-light-blue-color;
+    -webkit-mask-image: url(../../icons/Dollar.svg);
+    mask-image: url(../../icons/Dollar.svg);
+  }
+
+  &--sightseeing {
+    background-color: $gray03-color;
+    -webkit-mask-image: url(../../icons/Sightseeing.svg);
+    mask-image: url(../../icons/Sightseeing.svg);
+  }
+
+  &--sport {
+    background-color: $gray03-color;
+    -webkit-mask-image: url(../../icons/Sport.svg);
+    mask-image: url(../../icons/Sport.svg);
+  }
+
+  &--nature {
+    background-color: $gray03-color;
+    -webkit-mask-image: url(../../icons/Nature.svg);
+    mask-image: url(../../icons/Nature.svg);
+  }
+
+  &--tours {
+    background-color: $gray03-color;
+    -webkit-mask-image: url(../../icons/Tours.svg);
+    mask-image: url(../../icons/Tours.svg);
+  }
+
+  &--check-box {
+    margin-right: 16px;
+    border: 2px solid $gray03-color;
+    border-radius: 8px;
+  }
+
+  &--check-box-active {
+    border: none;
+    background-image: url(../../icons/Checkbox.svg);
   }
 }

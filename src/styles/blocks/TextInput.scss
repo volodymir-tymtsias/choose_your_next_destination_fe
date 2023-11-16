@@ -1,0 +1,24 @@
+.textInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+
+  &__label {
+    @extend %body-medium;
+    color: $gray01-color;
+  }
+  
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__icon-left {
+    position: absolute;
+    left: 24px;
+  }
+}

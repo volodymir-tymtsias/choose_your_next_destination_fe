@@ -1,0 +1,77 @@
+.filters {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // align-items: center;
+  background-color: rgba(8, 8, 9, 0.8);
+
+  &__container {
+    // position: relative;
+    // top: 50%;
+    width: 600px;
+    border-radius: 48px;
+    padding-top: 16px;
+    background-color: $gray01-color;
+    text-align: center;
+    // transform: translateY(-50%);
+  }
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    line-height: 28px;
+  }
+
+  &__button {
+    position: absolute;
+    top: 0px;
+    right: 32px;
+  }
+
+  &__content {
+    position: relative;
+    top: 2px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 80px 30px 80px;
+    border-radius: 48px;
+    background-color: $primary-color;
+  }
+
+  &__activities-title {
+    text-align: start;
+    margin-bottom: 10px;
+    @extend %body-medium;
+    color: $gray01-color;
+  }
+
+  &__activities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+}
