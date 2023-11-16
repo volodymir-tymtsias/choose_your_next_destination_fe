@@ -1,33 +1,42 @@
 {
   "files": {
-    "main.css": "./static/css/main.7794aa04.css",
-    "main.js": "./static/js/main.6ace073a.js",
+    "main.css": "./static/css/main.b43f957f.css",
+    "main.js": "./static/js/main.4666e29d.js",
     "static/js/787.a213109c.chunk.js": "./static/js/787.a213109c.chunk.js",
     "static/media/Graphik-Semibold.otf": "./static/media/Graphik-Semibold.6b4438951b43b1f2b4d3.otf",
     "static/media/Graphik-Medium.otf": "./static/media/Graphik-Medium.3eb2c26dc24c945401af.otf",
     "static/media/Graphik-Regular.otf": "./static/media/Graphik-Regular.e7f4046c1937c259c933.otf",
+    "static/media/Nature.svg": "./static/media/Nature.0d802a87f7764a3517d8.svg",
     "static/media/Filters.svg": "./static/media/Filters.3257046316288df54a22.svg",
     "static/media/Seaside.svg": "./static/media/Seaside.6a8324dc7e22c1774212.svg",
+    "static/media/Tours.svg": "./static/media/Tours.e3d931f685e07dd59bec.svg",
+    "static/media/Sport.svg": "./static/media/Sport.42e059467f521973daa2.svg",
     "static/media/Extreme.svg": "./static/media/Extreme.1f2bf0b14cf07e5037de.svg",
     "static/media/Price.svg": "./static/media/Price.c32d2f4e7c65a7f37366.svg",
+    "static/media/Location.svg": "./static/media/Location.936fb5cc16a605833d9d.svg",
     "static/media/Heart.svg": "./static/media/Heart.9b286b5b73fb4b1f52c3.svg",
     "static/media/Search.svg": "./static/media/Search.cf6785e371e084c43823.svg",
+    "static/media/Calendar.svg": "./static/media/Calendar.e667e4563869b54794e9.svg",
     "static/media/Architecture.svg": "./static/media/Architecture.fd6bfb22f60f6f242bcb.svg",
     "static/media/Cities.svg": "./static/media/Cities.291627bbab49be01a1f0.svg",
+    "static/media/Dollar.svg": "./static/media/Dollar.8c4716207764747516a5.svg",
     "static/media/TripPlanner.svg": "./static/media/TripPlanner.b73b861a913833be7121.svg",
     "static/media/Home.svg": "./static/media/Home.27d7a83cbce6ee6a9ae5.svg",
+    "static/media/Sightseeing.svg": "./static/media/Sightseeing.3e717874d379f7403f27.svg",
     "static/media/Language.svg": "./static/media/Language.3de79858085e5ea893eb.svg",
     "static/media/Mountains.svg": "./static/media/Mountains.e2ad404f306f605b9f2a.svg",
     "static/media/Rating.svg": "./static/media/Rating.76a43dd8f60f297c1961.svg",
     "static/media/Star.svg": "./static/media/Star.b2a9459976682f0ff254.svg",
     "index.html": "./index.html",
+    "static/media/Close.svg": "./static/media/Close.ce0978eadf70e3db36b7.svg",
+    "static/media/Checkbox.svg": "./static/media/Checkbox.956c550e47007fa10e61.svg",
     "static/media/Arrow.svg": "./static/media/Arrow.30d4a7e6a4ed89775ed5.svg",
-    "main.7794aa04.css.map": "./static/css/main.7794aa04.css.map",
-    "main.6ace073a.js.map": "./static/js/main.6ace073a.js.map",
+    "main.b43f957f.css.map": "./static/css/main.b43f957f.css.map",
+    "main.4666e29d.js.map": "./static/js/main.4666e29d.js.map",
     "787.a213109c.chunk.js.map": "./static/js/787.a213109c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7794aa04.css",
-    "static/js/main.6ace073a.js"
+    "static/css/main.b43f957f.css",
+    "static/js/main.4666e29d.js"
   ]
 }
